@@ -1,8 +1,10 @@
 import streamlit as st
 import pandas as pd
+from PIL import Image
 import requests
 from math import ceil
 import io
+from functools import reduce
 
 
 def git_index():
@@ -22,6 +24,19 @@ def git_busca():
     return df
 
 
+def logo():
+    col1, col2, col3 = st.sidebar.columns(3)
+    url = 'https://github.com/Edmilson-Filimone/datasets/raw/main/logo.png'
+    pic_content = requests.get(url).content
+    with open('image.png', 'wb') as file:
+        foto = file.write(pic_content)
+        file.close()
+
+    pil = Image.open('image.png')
+    col2.image(pil, use_column_width=True, clamp=True)
+    col1.write('')
+
+
 def div(h, cor, texto, curva):
     """funcao div - retorna uma string do texto HTML com propiedades
         ajustaveis(h-titulo(h1,h2)/paragrafo(p), cor, texto)"""
@@ -36,27 +51,27 @@ def div(h, cor, texto, curva):
 def html_main_body(data_frame):
     # soma total de cada categoria no dataframe -- para o painel
     criotubos = len(data_frame['Isolado'])
-    caixas = ceil(len(data_frame['Isolado'].unique()) / 25)
+    caixas = ceil(len(data_frame['Isolado'])/25)
     isolados = len(data_frame['Isolado'].unique())
     width = 100
 
-    # Estrutura em HTML/CSS do painel #33F65C '#c9ddc9' #99ff99
+    # Estrutura em HTML/CSS do painel #33F65C '#c9ddc9' #99ff99 ##404340 ##464e5F #F4D44E
     numero_criotubo = f"""<div style="background-color:#464e5F;padding:2px;border-radius:7px;font-family: arial
                     ;width: {width}%"> 
-                    <h5 style="color:white;text-align:center;"> Numero de criotubos </h5>
-                    <h4 style="color:white;text-align:center;"> {criotubos} </h4>
+                    <h6 style="color:white;text-align:center;"> Numero de criotubos </h6>
+                    <h5 style="color:white;text-align:center;">{criotubos}</h5>
                     </div>"""
 
-    numero_caixa = f"""<div style="background-color:#464e5F;padding:2px;border-radius:7px;font-family: arial;
+    numero_caixa = f"""<div style="background-color:#F4D44E;padding:2px;border-radius:7px;font-family: arial;
                     width: {width}%">
-                    <h5 style="color:white;text-align:center;"> Numero de caixas:</h5>
-                    <h4 style="color:white;text-align:center;"> {caixas} </h4>
+                    <h6 style="color:black;text-align:center;"> Numero de caixas</h6>
+                    <h5 style="color:black;text-align:center;">{caixas}</h5>
                     </div>"""
 
-    numero_isolado = f"""<div style="background-color:#464e5F;padding:2px;border-radius:7px;font-family: arial;
+    numero_isolado = f"""<div style="background-color:#4ADEDE;padding:2px;border-radius:7px;font-family: arial;
                     width: {width}%">
-                    <h5 style="color:white;text-align:center;"> Numero de isolados:</h5>
-                    <h4 style="color:white;text-align:center;"> {isolados} </h4>
+                    <h6 style="color:black;text-align:center;"> Numero de isolados </h6>
+                    <h5 style="color:black;text-align:center;">{isolados}</h5>
                     </div>"""
 
     # integrado o HTML via markdown nas colunas
@@ -66,8 +81,14 @@ def html_main_body(data_frame):
     zeta.markdown(numero_isolado, True)
 
 
-def main_criobank(df_fitrado=None):
+@st.cache
+def download_button(data, nome):
+    file = data.to_csv().encode('utf-8')
 
+    st.download_button(label='Baixar os dados', data=file, file_name=nome, mime='csv')
+
+
+def main_criobank():
     # side-bar label
     global select_box_cp, select_box_local, select_box_ano, select_box_resist, select_box_especie, sub_3, select_box_animal
 
@@ -96,13 +117,13 @@ def main_criobank(df_fitrado=None):
 
     # Form 2 - Isolados
     forma_2 = st.sidebar.form(key='form-2')
-    #forma_2.markdown("**Isolados**")
+    # forma_2.markdown("**Isolados**")
     select_box_isolados = forma_2.selectbox(label='Isolados', options=lista_3)
     sub_2 = forma_2.form_submit_button('---ver---')
 
     # Check-box - pesquisa profunda
-    #marco = st.sidebar.checkbox(label='Pesquisa profunda (varios parametros)')
-    select_box_cp = select_box_local = select_box_ano = select_box_resist = select_box_especie = select_box_animal = sub_3 = st.empty# solvinng escope issues
+    # marco = st.sidebar.checkbox(label='Pesquisa profunda (varios parametros)')
+    select_box_cp = select_box_local = select_box_ano = select_box_resist = select_box_especie = select_box_animal = sub_3 = st.empty  # solvinng escope issues
 
     # Form 3 - Isolados
     forma_3 = st.sidebar.form(key='form-3')
@@ -121,135 +142,126 @@ def main_criobank(df_fitrado=None):
     if sub:
         # dataframe filtring
         if select_box_caixa == 'Todas':
-            df_fitrado = df[df['Canister'] == select_box_canister]
+            df_filtrado = df[df['Canister'] == select_box_canister]
         else:
-            df_fitrado = df[(df['Canister'] == select_box_canister) & (df['Caixa'] == select_box_caixa)]
+            df_filtrado = df[(df['Canister'] == select_box_canister) & (df['Caixa'] == select_box_caixa)]
 
         # Agregacao
-        agg = df_fitrado.groupby('Isolado').agg({'Caixa': 'count', 'Isolado': 'count'})
+        #agg = df_filtrado.groupby('Isolado').agg({'Caixa': 'count', 'Isolado': 'count'})
+        agg = df_filtrado['Isolado'].value_counts()
 
         # html_body
-        html_main_body(df_fitrado)
+        html_main_body(df_filtrado)
         st.text('')  # espaco
 
         # cabecalho para o dataframe
-        st.markdown(div(h='h5', cor='#464e5F', curva=0,
+        st.markdown(div(h='h6', cor='#464e5F', curva=0,
                         texto=f'Tabela com os dados do {select_box_canister} | {select_box_caixa}'),
                     True)
         st.text('')
 
-        st.dataframe(df_fitrado, width=1400, height=500)
+        st.dataframe(df_filtrado, width=1400, height=500)
         st.markdown(div(h='h6', cor='#464e5F', curva=0, texto=f'Resumo - Somatororio'),
                     True)
-        st.dataframe(agg.T, width=1400, height=500)
+        st.dataframe(agg.reset_index(), width=1400, height=200)
+        download_button(data=df_filtrado, nome=f'Ficha_{select_box_canister}_{select_box_caixa}.csv')
 
     elif sub_2:
-        df_fitrado = df[df['Isolado'] == select_box_isolados]
-        agg = df_fitrado.groupby('Isolado').agg({'Caixa': 'count', 'Isolado': 'count'})
+        df_filtrado = df[df['Isolado'] == select_box_isolados]
+        agg = df_filtrado['Isolado'].value_counts()
 
         # html_body
-        html_main_body(df_fitrado)
+        html_main_body(df_filtrado)
         st.text('')
 
         # cabecalho para o dataframe
         st.markdown(div(h='h5', cor='#464e5F', curva=7, texto=f'Tabela com os dados do isolado {select_box_isolados}'),
                     True)
         st.text('')
-        st.dataframe(df_fitrado, width=1400, height=500)
+        st.dataframe(df_filtrado, width=1400, height=500)
         st.markdown(div(h='h6', cor='#464e5F', curva=0, texto=f'Resumo - Somatororio'),
                     True)
         st.dataframe(agg.T, width=1400, height=500)
+        download_button(data=df_filtrado, nome=f'Ficha_{select_box_isolados}.csv')
 
     elif sub_3:
-        if select_box_especie == 'Todos':
-            df_fitrado = df[(df['Status_de_resistencia'] == select_box_resist) & (
-                    df['Ano_de_criopreservacao'] == select_box_ano) & (
-                                     df['Local_de_colheita'] == select_box_local) & (
-                                     df['Animal_de_colheita'] == select_box_animal) & (
-                                     df['Agente_crioprotector'] == select_box_cp)]
-        if select_box_resist == 'Todos':
-            df_fitrado = df[
-                (df['Especie'] == select_box_especie) & (df['Ano_de_criopreservacao'] == select_box_ano) & (
-                        df['Local_de_colheita'] == select_box_local) & (
-                        df['Animal_de_colheita'] == select_box_animal) & (
-                        df['Agente_crioprotector'] == select_box_cp)]
-        if select_box_ano == 'Todos':
-            df_fitrado = df[
-                (df['Especie'] == select_box_especie) & (df['Status_de_resistencia'] == select_box_resist) & (
-                        df['Local_de_colheita'] == select_box_local) & (
-                        df['Animal_de_colheita'] == select_box_animal) & (
-                        df['Agente_crioprotector'] == select_box_cp)]
-        if select_box_local == 'Todos':
-            df_fitrado = df[
-                (df['Especie'] == select_box_especie) & (df['Status_de_resistencia'] == select_box_resist) & (
-                        df['Ano_de_criopreservacao'] == select_box_ano) & (
-                        df['Animal_de_colheita'] == select_box_animal) & (
-                        df['Agente_crioprotector'] == select_box_cp)]
-        if select_box_animal == 'Todos':
-            df_fitrado = df[
-                (df['Especie'] == select_box_especie) & (df['Status_de_resistencia'] == select_box_resist) & (
-                        df['Ano_de_criopreservacao'] == select_box_ano) & (
-                        df['Local_de_colheita'] == select_box_local) & (
-                        df['Agente_crioprotector'] == select_box_cp)]
-        if select_box_cp == 'Todos':
-            df_fitrado = df[
-                (df['Especie'] == select_box_especie) & (df['Status_de_resistencia'] == select_box_resist) & (
-                        df['Ano_de_criopreservacao'] == select_box_ano) & (
-                        df['Local_de_colheita'] == select_box_local) & (
-                        df['Animal_de_colheita'] == select_box_animal)]
-        else:
-            df_fitrado = df[
-                (df['Especie'] == select_box_especie) & (df['Status_de_resistencia'] == select_box_resist) & (
-                        df['Ano_de_criopreservacao'] == select_box_ano) & (
-                        df['Local_de_colheita'] == select_box_local) & (
-                        df['Animal_de_colheita'] == select_box_animal) & (
-                        df['Agente_crioprotector'] == select_box_cp)]
+        # criando varios dataframes para cada pesquisa
+        df1 = df.loc[df['Especie'] == select_box_especie.replace('Todos', '')]
+        df2 = df.loc[df['Status_de_resistencia'] == select_box_resist.replace('Todos', '')]
+        df3 = df.loc[df['Ano_de_criopreservacao'] == select_box_ano.replace('Todos', '')]
+        df4 = df.loc[df['Local_de_colheita'] == select_box_local.replace('Todos', '')]
+        df5 = df.loc[df['Animal_de_colheita'] == select_box_animal.replace('Todos', '')]
+        df6 = df.loc[df['Agente_crioprotector'] == select_box_cp.replace('Todos', '')]
 
-        agg = df_fitrado.groupby('Isolado').agg(
-            {'Caixa': 'count', 'Isolado': 'count', 'Especie': 'count', 'Status_de_resistencia': 'count'})
+        colunas = ['Canister', 'Canister-Level', 'Caixa', 'Posicao do Criotubo', 'Isolado',
+                         'Especie', 'Status_de_resistencia', 'Local_de_colheita',
+                         'Animal_de_colheita', 'Ano_de_criopreservacao', 'Agente_crioprotector',
+                         'Volume/tubo']
+
+        colunas_x = ['Canister_x', 'Canister-Level_x', 'Caixa_x', 'Posicao do Criotubo_x', 'Isolado_x', 'Especie_x',
+                     'Status_de_resistencia_x', 'Local_de_colheita_x', 'Animal_de_colheita_x', 'Ano_de_criopreservacao_x',
+                     'Agente_crioprotector_x', 'Volume/tubo_x']
+
+        # juntando todos os dataframes (pd.merge()) com base na coluna ID
+        data_frames = [df1, df2, df3, df4, df5, df6]
+        new_data = []
+
+        for data in data_frames:
+            if data.size > 0:
+                new_data.append(data)
+
+        print(new_data)
+
+        # aglutinando os dataframes (funcao reduce e lambda para agrupar varios dataframes)
+        # fonte: https://newbedev.com/merging-multiple-dataframes-in-pandas-code-example
+        df_merged = reduce(lambda left, right: pd.merge(left, right, on=['id'], how='inner'), new_data)
+        numero_de_colunas = len(df_merged.columns)
+
+        df_merged.columns = [list(range(numero_de_colunas))]
+        df_merged = df_merged[list(range(12))]
+        df_merged.columns = colunas
+        df_filtrado = df_merged
+
+        #agg = df_filtrado.groupby('Isolado').agg({'Caixa': 'count', 'Isolado': 'count', 'Especie': 'count',
+        #                                          'Status_de_resistencia': 'count'})
+        agg = df_filtrado['Isolado'].value_counts()
 
         # html_body
-        html_main_body(df_fitrado)
+        html_main_body(df_filtrado)
         st.text('')
 
         # cabecalho para o dataframe
-        st.markdown(div(h='h5', cor='#464e5F', curva=7, texto=f'Tabela com os dados do isolado {select_box_isolados}'),
+        st.markdown(div(h='h5', cor='#464e5F', curva=7, texto=f'Tabela com os dados do isolado {select_box_especie}'),
                     True)
         st.text('')
-        st.dataframe(df_fitrado, width=1400, height=500)
+        st.dataframe(df_filtrado, width=1400, height=500)
         st.markdown(div(h='h6', cor='#464e5F', curva=0, texto=f'Resumo - Somatororio'),
                     True)
         st.dataframe(agg.T, width=1400, height=500)
+        download_button(data=df_filtrado, nome=f'Ficha_{select_box_especie}_filtro.csv' )
     else:
-        st.markdown("""Todo o conteúdo registrado no inventário biológico do biotério encontra-se 
-                sumarizado nesse Dashboard.
+        st.markdown("""Todo o conteúdo registrado do banco de isolado de tripanossomas do CB-UEM encontra-se 
+                sumarizado nesta Web-App.
         
 ### **Como proceder ?**
-- Para ver a informação: escolha a ficha (inventario) que deseja ver e pressione o botão “ver”
+- Para ver a informação: escolha o conteúdo que deseja ver atraves dos submenus do painel e pressione o botão “ver”
 ### **O que você vai encontrar ?**
-- Todos os registros devidamente organizados
-- Gráficos explicativos com base no número de animais:\n
-        	- Percentagem de machos/ fêmeas / crias\n
-        	- Número de animais por gaiola\n
-        	- Numero total de animais por inventário\n  
-        - Tabela do inventário e uma opção de download
+- Todos os registros devidamente organizados e sumarizados
+- Três submenus para filtrar o conteudo:\n
+- Um painel indicador\n
+        - Número de caixas em uso\n
+        - Número total de criotubos\n  
+        - Número de isolados criopreservados
         """)
 
 
 def info():
     expander = st.sidebar.expander('Notas importantes')
     expander.markdown('**Informação**')
-    expander.info("""- Para melhor exibição
-                    Selecione: Settings->Appearence->Wide mode
-                    - Para mudar o tema
+    expander.info("""- Para mudar o tema
                     selecione: Settings->Theme""")
-    expander.warning("""- No telefone o dashboard pode 
-                        aparecer mal enquadrado.
-                        para solucionar,
-                        dentro do seu navegador selecione 
-                        a opção "vista para site de computador":   
-                        - No Chrome: site para   computador;    
-                        - No Opera: site no computador""")
+    expander.warning("""- No Mobile: selecione a opção "vista para site de computador":
+    para melhor enquadramento""")
     expander_2 = st.sidebar.expander('Sobre')
     expander_2.info("""- Criobank Monitor v.1.0 
                         Desenvolvido em Python 3 | Streamlit framework, et al|      
@@ -259,7 +271,14 @@ def info():
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
-    st.markdown(div(h='h4', cor='#464e5F', curva=0, texto='Monitor do Banco de Isolados'), unsafe_allow_html=True)
+    st.markdown(div(h='h5', cor='#464e5F', curva=0, texto='Painel do banco de isolados de tripanossoma'),
+                unsafe_allow_html=True)
     st.text('')
+    logo()
     main_criobank()
     info()
+    # st.error('Oopahhh!!! Problemas com a rede...')
+    # st.info('Tente novamente...')
+    # st.info('Para suporte: philimone99@gmail.com')
+
+# streamlit run G:\PyPrograms\CrioBank\criobank.py
