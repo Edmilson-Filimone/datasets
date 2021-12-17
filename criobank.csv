@@ -290,9 +290,9 @@ Canister - 2, Posicao - 2 ,Caixa - 2,13,Tv_Zimba_6,T. vivax,Nao resistente,Matut
 Canister - 2, Posicao - 2 ,Caixa - 2,14,Tv_Zimba_6,T. vivax,Nao resistente,Matutuine,Maputo,Bovino,2014,DMSO,400,,,289
 Canister - 2, Posicao - 2 ,Caixa - 2,15,Tv_Zimba_6,T. vivax,Nao resistente,Matutuine,Maputo,Bovino,2014,DMSO,400,,,290
 Canister - 2, Posicao - 2 ,Caixa - 2,16,Tv_Zimba_6,T. vivax,Nao resistente,Matutuine,Maputo,Bovino,2014,DMSO,400,,,291
-Canister - 2, Posicao - 2 ,Caixa - 2,17,Tc_Pt_Mudada,T. congolense,Nao resistente,Matutuine,Maputo,<vazio>,s/d,Glicerol,400,,,292
+Canister - 2, Posicao - 2 ,Caixa - 2,17,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,292
 Canister - 2, Posicao - 2 ,Caixa - 2,18,Tv_Matutuine,T. vivax,Nao resistente,Matutuine,Maputo,<vazio>,2014,DMSO,400,,,293
-Canister - 2, Posicao - 2 ,Caixa - 2,19,Tc_Zambezia,T. congolense,Resistente,Zambezia,Zambezia,<vazio>,2018,Glicerol,400,,,294
+Canister - 2, Posicao - 2 ,Caixa - 2,19,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,294
 Canister - 2, Posicao - 2 ,Caixa - 2,20,Tc_Zambezia,T. congolense,Resistente,Zambezia,Zambezia,<vazio>,2018,Glicerol,400,,,295
 Canister - 2, Posicao - 2 ,Caixa - 2,21,Tc_Zambezia,T. congolense,Resistente,Zambezia,Zambezia,<vazio>,2018,Glicerol,400,,,296
 Canister - 2, Posicao - 2 ,Caixa - 2,22,Tc_Zambezia,T. congolense,Resistente,Zambezia,Zambezia,<vazio>,2018,Glicerol,400,,,297
@@ -301,8 +301,8 @@ Canister - 2, Posicao - 2 ,Caixa - 2,24,Tc_Zambezia,T. congolense,Resistente,Zam
 Canister - 2, Posicao - 2 ,Caixa - 2,25,Tc_Zambezia,T. congolense,Resistente,Zambezia,Zambezia,<vazio>,2018,Glicerol,400,,,300
 Canister - 2, Posicao - 3 ,Caixa - 3,1,Tc_Zambezia,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2018,Glicerol,400,,,301
 Canister - 2, Posicao - 3 ,Caixa - 3,2,Tc_Zambezia,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2018,Glicerol,400,,,302
-Canister - 2, Posicao - 3 ,Caixa - 3,3,Tb_2017,T. brucei,Nao resistente,<vazio>,<vazio>,Bovino,2017,Glicerol,400,,,303
-Canister - 2, Posicao - 3 ,Caixa - 3,4,Tc_Matutuine_Gala,T. congolense,Nao resistente,Matutuine,Maputo,Bovino,2018,Glicerol,400,,,304
+Canister - 2, Posicao - 3 ,Caixa - 3,3,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,303
+Canister - 2, Posicao - 3 ,Caixa - 3,4,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,304
 Canister - 2, Posicao - 3 ,Caixa - 3,5,Tv_Niassa,T. vivax,Nao resistente,Niassa,Niassa,<vazio>,2018,Glicerol,400,,,305
 Canister - 2, Posicao - 3 ,Caixa - 3,6,Tb_Animal_13,T. brucei,Nao resistente,<vazio>,<vazio>,Bovino,2017,Glicerol,400,,,306
 Canister - 2, Posicao - 3 ,Caixa - 3,7,Tv_Niassa,T. vivax,Nao resistente,Niassa,Niassa,<vazio>,2018,Glicerol,400,,,307
