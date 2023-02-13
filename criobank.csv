@@ -263,7 +263,7 @@ Canister - 2, Posicao - 1 ,Caixa - 1,11,Tc_Bov_64,T. congolense,Resistente,Zambe
 Canister - 2, Posicao - 1 ,Caixa - 1,12,Tc_Bov_64,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2015,Glicerol,400,04_12_2015,,262
 Canister - 2, Posicao - 1 ,Caixa - 1,13,Tc_Bov_64,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2015,Glicerol,400,04_12_2015,,263
 Canister - 2, Posicao - 1 ,Caixa - 1,14,Kn08217,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,DMSO,400,17_11_2022,<vazio>,264
-Canister - 2, Posicao - 1 ,Caixa - 1,15,T_congolense_B61,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,Glicerol,400,16_11_2022,,265
+Canister - 2, Posicao - 1 ,Caixa - 1,15,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,265
 Canister - 2, Posicao - 1 ,Caixa - 1,16,T_congolense_B61,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,Glicerol,400,16_11_2022,,266
 Canister - 2, Posicao - 1 ,Caixa - 1,17,T_congolense_B61,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,Glicerol,400,16_11_2022,,267
 Canister - 2, Posicao - 1 ,Caixa - 1,18,T_congolense_B61,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,Glicerol,400,16_11_2022,,268
@@ -544,7 +544,7 @@ Canister - 3, Posicao - 2 ,Caixa - 2,15,Isolado_43,Trypanosoma sp,<vazio>,<vazio
 Canister - 3, Posicao - 2 ,Caixa - 2,16,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,Bovino,2015,Glicerol,400,,,541
 Canister - 3, Posicao - 2 ,Caixa - 2,17,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,Bovino,2015,Glicerol,400,,,542
 Canister - 3, Posicao - 2 ,Caixa - 2,18,Isolado_14,Trypanosoma sp,<vazio>,<vazio>,<vazio>,Bovino,2015,Glicerol,400,,,543
-Canister - 3, Posicao - 2 ,Caixa - 2,19,Tc_Resistente,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2016,Glicerol,400,,,544
+Canister - 3, Posicao - 2 ,Caixa - 2,19,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,,544
 Canister - 3, Posicao - 2 ,Caixa - 2,20,Tc_Resistente,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2016,Glicerol,400,,,545
 Canister - 3, Posicao - 2 ,Caixa - 2,21,Tc_Resistente,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2016,Glicerol,400,,,546
 Canister - 3, Posicao - 2 ,Caixa - 2,22,Tc_Resistente,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2016,Glicerol,400,,,547
@@ -779,7 +779,7 @@ Canister - 4, Posicao - 1 ,Caixa - 1,25,Tc_Zambezia_Isolado_8,T. congolense,Resi
 Canister - 4, Posicao - 2 ,Caixa - 2,1,Isolado_46,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,2015,Glicerol,400,,,776
 Canister - 4, Posicao - 2 ,Caixa - 2,2,Isolado_46,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,2015,Glicerol,400,,,777
 Canister - 4, Posicao - 2 ,Caixa - 2,3,Isolado_46,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,2015,Glicerol,400,,,778
-Canister - 4, Posicao - 2 ,Caixa - 2,4,Tc_Bov-69,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2015,Glicerol,400,,,779
+Canister - 4, Posicao - 2 ,Caixa - 2,4,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,779
 Canister - 4, Posicao - 2 ,Caixa - 2,5,Tc_Bov-64,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2015,Glicerol,400,,,780
 Canister - 4, Posicao - 2 ,Caixa - 2,6,Tv_Zimba_6,T. vivax,Nao resistente,Matutuine,Maputo,Bovino,2013,DMSO,400,,,781
 Canister - 4, Posicao - 2 ,Caixa - 2,7,Tc_Bov-64,T. congolense,Resistente,Zambezia,Zambezia,Bovino,2015,Glicerol,400,,,782
@@ -1276,7 +1276,7 @@ Canister - 6, Posicao - 1 ,Caixa - 1,22,TCR_Bov-71,T. congolense,Resistente,Zamb
 Canister - 6, Posicao - 1 ,Caixa - 1,23,TCR 2015 (TCZ),T. congolense,Resistente,Zambezia,Zambezia,Murganho,2015,Glicerol,400,01_11_2021,,1273
 Canister - 6, Posicao - 1 ,Caixa - 1,24,TCR 2015 (TCZ),T. congolense,Resistente,Zambezia,Zambezia,Murganho,2015,Glicerol,400,01_11_2021,,1274
 Canister - 6, Posicao - 1 ,Caixa - 1,25,TCR 2015 (TCZ),T. congolense,Resistente,Zambezia,Zambezia,Murganho,2015,Glicerol,400,01_11_2021,,1275
-Canister - 6, Posicao - 2 ,Caixa - 2,1,TCR,T. congolense,Resistente,Zambezia,Zambezia,Murganho,<vazio>,Glicerol,400,04_11_2021,<vazio>,1276
+Canister - 6, Posicao - 2 ,Caixa - 2,1,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,1276
 Canister - 6, Posicao - 2 ,Caixa - 2,2,TCR,T. congolense,Resistente,Zambezia,Zambezia,Murganho,<vazio>,Glicerol,400,04_11_2021,<vazio>,1277
 Canister - 6, Posicao - 2 ,Caixa - 2,3,TCR,T. congolense,Resistente,Zambezia,Zambezia,Murganho,<vazio>,Glicerol,400,04_11_2021,<vazio>,1278
 Canister - 6, Posicao - 2 ,Caixa - 2,4,TCR,T. congolense,Resistente,Zambezia,Zambezia,Murganho,<vazio>,Glicerol,400,04_11_2021,<vazio>,1279
@@ -1299,7 +1299,7 @@ Canister - 6, Posicao - 2 ,Caixa - 2,20,TCR (2016),T. congolense,Resistente,Zamb
 Canister - 6, Posicao - 2 ,Caixa - 2,21,TCR (2016),T. congolense,Resistente,Zambezia,Zambezia,Murganho,2016,Glicerol,400,13_12_2021,<vazio>,1296
 Canister - 6, Posicao - 2 ,Caixa - 2,22,TCR (2016),T. congolense,Resistente,Zambezia,Zambezia,Murganho,2016,Glicerol,400,13_12_2021,<vazio>,1297
 Canister - 6, Posicao - 2 ,Caixa - 2,23,TCR (2016),T. congolense,Resistente,Zambezia,Zambezia,Murganho,2016,Glicerol,400,13_12_2021,<vazio>,1298
-Canister - 6, Posicao - 2 ,Caixa - 2,24,Tco Zamb B16,T. congolense,Resistente,Zambezia,Zambezia,Murganho,<vazio>,Glicerol,400,1_04_2022,<vazio>,1299
+Canister - 6, Posicao - 2 ,Caixa - 2,24,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,1299
 Canister - 6, Posicao - 2 ,Caixa - 2,25,Tco Zamb B16,T. congolense,Resistente,Zambezia,Zambezia,Murganho,<vazio>,Glicerol,400,1_04_2022,<vazio>,1300
 Canister - 6, Posicao - 3 ,Caixa - 3,1,Tco_B16,T. congolense,Resistente,Zambezia,Zambezia,<vazio>,<vazio>,<vazio>,<vazio>,25_04_2022,<vazio>,1301
 Canister - 6, Posicao - 3 ,Caixa - 3,2,Tco_B16,T. congolense,Resistente,Zambezia,Zambezia,<vazio>,<vazio>,<vazio>,<vazio>,25_04_2022,<vazio>,1302
@@ -1502,12 +1502,12 @@ Canister - 6, Posicao - 10,Caixa - 10,23,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>
 Canister - 6, Posicao - 10,Caixa - 10,24,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,1499
 Canister - 6, Posicao - 10,Caixa - 10,25,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,1500
 Canister - 7, Posicao - 1 ,Caixa - 1,1,Tco_Zambezia,T.congolense,<vazio>,Zambezia,Zambezia,Murganho,<vazio>,Glicerol,400,27_09_2022,<vazio>,1501
-Canister - 7, Posicao - 1 ,Caixa - 1,2,TCM_2016,T.congolense,<vazio>,Matutuine,Maputo,<vazio>,2016,Glicerol,400,27_09_2022,<vazio>,1502
+Canister - 7, Posicao - 1 ,Caixa - 1,2,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,1502
 Canister - 7, Posicao - 1 ,Caixa - 1,3,TCM_2016,T.congolense,<vazio>,Matutuine,Maputo,<vazio>,2016,Glicerol,400,27_09_2022,<vazio>,1503
 Canister - 7, Posicao - 1 ,Caixa - 1,4,T_vivax_B61,T.congolense,<vazio>,Matutuine,Maputo,<vazio>,<vazio>,Glicerol,400,27_09_2022,<vazio>,1504
 Canister - 7, Posicao - 1 ,Caixa - 1,5,CF19,T.congolense,<vazio>,Matutuine,Maputo,<vazio>,<vazio>,Glicerol,400,27_09_2022,<vazio>,1505
 Canister - 7, Posicao - 1 ,Caixa - 1,6,CF19,T.congolense,<vazio>,Matutuine,Maputo,<vazio>,<vazio>,Glicerol,400,29_09_2022,<vazio>,1506
-Canister - 7, Posicao - 1 ,Caixa - 1,7,TCR_2015,T.congolense,<vazio>,Zambezia,Zambezia,<vazio>,2015,Glicerol,400,29_09_2023,<vazio>,1507
+Canister - 7, Posicao - 1 ,Caixa - 1,7,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,1507
 Canister - 7, Posicao - 1 ,Caixa - 1,8,CF19,T.congolense,<vazio>,Matutuine,Maputo,<vazio>,<vazio>,Glicerol,400,3_10_2022,<vazio>,1508
 Canister - 7, Posicao - 1 ,Caixa - 1,9,CF19,T.congolense,<vazio>,Matutuine,Maputo,<vazio>,<vazio>,Glicerol,400,3_10_2022,<vazio>,1509
 Canister - 7, Posicao - 1 ,Caixa - 1,10,Iso_1,T.congolense,<vazio>,<vazio>,<vazio>,<vazio>,<vazio>,Glicerol,400,05_10_2022,<vazio>,1510
